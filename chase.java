@@ -39,7 +39,7 @@ public class chase
     
       System.out.println("Sorry that is the wrong asnwer. You have lost your chance of getting a power up! ");
     }
-    System.out.println("Let's get onto the actual questions, enter Yes to move on!!! ");
+    System.out.println("Let's get onto the actual questions!!! ");
     String quest = "";
 // waiting for the user to yes to move on, the user can also type it upper or lower case
     while(!quest.equalsIgnoreCase("Yes"))
@@ -47,10 +47,24 @@ public class chase
       System.out.print("Please enter Yes to move on!!! ");
       quest = sc.nextLine();
     }
-      for(int i = 0; i < 5 ; i++)         // asking 15 random questions to the user as the user will need to get 5 right to escape.
+
+    int score = 0;      // storing how many right answers
+    int questionasked = 0;   // storing how many questions have been asked
+    String answer = "";
+
+      for(int i = 0; i < 15 ; i++)         // asking 15 random questions to the user as the user will need to get 5 right to escape.
     {
-        int randomnumber = (int)(Math.random()*14+1);
-        printQuestion(randomnumber);
+      System.out.println("Make sure you enter A, B, C or D to move onto the next question. A test will appear next.");
+      answer = sc.nextLine();
+      while(!answer.equalsIgnoreCase("A" + "B" + "C" + "D"))
+      {
+        System.out.println("Please enter A, B, C or D");
+        answer = sc.nextLine();
+      }
+      System.out.println("Please enter your answer, acceptable is A, B, C or D. ");  
+      answer = sc.next();
+      int randomnumber = (int)(Math.random()*14+1);
+      printQuestion(randomnumber);
     } 
 }
     static void printQuestion(int randomnumber) {
