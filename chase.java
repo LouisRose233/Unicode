@@ -52,17 +52,10 @@ public class chase
     int questionasked = 0;   // storing how many questions have been asked
     String answer = "";
 
+      System.out.println("Make sure you enter A, B, C or D to move onto the next question.");
+      answer = sc.nextLine();
       for(int i = 0; i < 15 ; i++)         // asking 15 random questions to the user as the user will need to get 5 right to escape.
     {
-      System.out.println("Make sure you enter A, B, C or D to move onto the next question. A test will appear next.");
-      answer = sc.nextLine();
-      while(!answer.equalsIgnoreCase("A" + "B" + "C" + "D"))
-      {
-        System.out.println("Please enter A, B, C or D");
-        answer = sc.nextLine();
-      }
-      System.out.println("Please enter your answer, acceptable is A, B, C or D. ");  
-      answer = sc.next();
       int randomnumber = (int)(Math.random()*14+1);
       printQuestion(randomnumber);
     } 
