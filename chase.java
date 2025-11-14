@@ -49,7 +49,7 @@ public class chase
     }
 
     int score = 0;      // storing how many right answers
-    int questionasked = 0;   // storing how many questions have been asked
+    int questionasked = 0;   // storing how many questions have been asked 
     String answer = "";
 
       System.out.println("Make sure you enter A, B, C or D to move onto the next question.");
@@ -57,10 +57,24 @@ public class chase
       for(int i = 0; i < 15 ; i++)         // asking 15 random questions to the user as the user will need to get 5 right to escape.
     {
       int randomnumber = (int)(Math.random()*14+1);
-      printQuestion(randomnumber);
+      boolean correct =  printQuestion(randomnumber);
+      if(correct) {score++; 
+      
+        System.out.println("Correct Well done!! ");
+      } else 
+      {
+        System.out.println("That is wrong unfortunately. :( ");
+      }
+      
+      if(score >= 5) break;
     } 
+
+    if (score >= 5)
+    System.out.println("You Escaped well done and good luck on your next adventures!! ");
+    else
+    System.out.println("You failed to escape and will be stuck with the chaser forever now.. ");
 }
-    static void printQuestion(int randomnumber) {
+    static boolean printQuestion(int randomnumber) {
       // the three """ make sure everything inside of it get's printed
       String question1 = """ 
           Which country has the highest life expectancy as of 2025?
@@ -179,8 +193,23 @@ public class chase
           }
           char[] answers =
           {
-            'A', 'C', 'A', 'D', 'B', 'C', 'A', 'D', 'B', 'A', 'C', 'D', 'A', 'B'    // All the correct answers listed 
+            'A', 'C', 'A', 'D', 'B', 'C', 'A', 'D', 'B', 'A', 'C', 'D', 'A', 'B'    // All the correct answers listed in an array
           };
+
+          System.out.print("Your answer was: ");
+          String userAnswer = sc.nextLine();
+
+          while(!userAnswer.matches("[ABCD]")) 
+          {
+            System.out.println("Please enter A, B, C or D!! ");
+            userAnswer = sc.nextLine();
+          }
+          char guess = userAnswer.charAt(0);     // looking at what the user has typed. 
+          return guess == answers[randomnumber - 1];   // checking if the guess equals the answers stored in the array.
+
+
+
+
           }
     }
 
