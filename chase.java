@@ -41,7 +41,7 @@ public class chase
     }
     System.out.println("Let's get onto the actual questions!!! ");
     String quest = "";
-// waiting for the user to yes to move on, the user can also type it upper or lower case
+// waiting for the user to type yes to move on, the user can also type it upper or lower case
     while(!quest.equalsIgnoreCase("Yes"))
     {
       System.out.print("Please enter Yes to move on!!! ");
@@ -52,9 +52,7 @@ public class chase
     int questionasked = 0;   // storing how many questions have been asked 
     String answer = "";
 
-      System.out.println("Make sure you enter A, B, C or D to move onto the next question.");
-      answer = sc.nextLine();
-      for(int i = 0; i < 15 ; i++)         // asking 15 random questions to the user as the user will need to get 5 right to escape.
+      for(int i = 0; i < 15 ; i++)         // asking 15 random questions to the user as the user will need to get 5 right to escape, if they run out of questions then it is game over.
     {
       int randomnumber = (int)(Math.random()*14+1);
       boolean correct =  printQuestion(randomnumber);
@@ -129,7 +127,7 @@ public class chase
           Who is the most followed person on instagram?
           A. Messi
           B. Selena Gomez
-          C. Brain Cox
+          C. Brian Cox
           D. Ronaldo
           """;
       String question9 = """
@@ -193,7 +191,7 @@ public class chase
           }
           char[] answers =
           {
-            'A', 'C', 'A', 'D', 'B', 'C', 'A', 'D', 'B', 'A', 'C', 'D', 'A', 'B'    // All the correct answers listed in an array
+            'A', 'C', 'A', 'D', 'B', 'C', 'A', 'D', 'A', 'A', 'C', 'D', 'A', 'B'    // All the correct answers listed in an array
           };
 
           System.out.print("Your answer was: ");
@@ -217,3 +215,5 @@ public class chase
 // need to create a power up
 // need to get it so that when the user says power up time it takes away 2 wrong answers
 // need to get it so the chaser is chasing you
+// need to get it so that a question can't be asked twice in one game
+
