@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 public class chase
@@ -49,22 +50,27 @@ public class chase
     }
 
     int score = 0;      // storing how many right answers
-    int questionasked = 0;   // storing how many questions have been asked 
-    String answer = "";
 
-      for(int i = 0; i < 15 ; i++)         // asking 15 random questions to the user as the user will need to get 5 right to escape, if they run out of questions then it is game over.
+      ArrayList<Integer> questionLeft = new ArrayList<>();  // creating an array to hold my questions, so that once is asked it can't be repeated
+      for(int x = 1; x <= 14; x++) {
+        questionLeft.add(x);
+      }              
+    
+    for (int i = 0; i < 14 && !questionLeft.isEmpty(); i++)
     {
-      int randomnumber = (int)(Math.random()*14+1);
-      boolean correct =  printQuestion(randomnumber);
+
+      int index = (int)(Math.random()* questionLeft.size());  // to make sure it is still random and not in order
+      int randomnumber = questionLeft.remove(index);    // this will remove the question from the array once it has been asked
+      boolean correct =  printQuestion(randomnumber);   // allows the code to now if the user got the question right or wrong, linked to the array with the answers
       if(correct) {score++; 
       
-        System.out.println("Correct Well done!! ");
+        System.out.println("Correct Well done!! ");  // printing if the user escaped or not
       } else 
       {
         System.out.println("That is wrong unfortunately. :( ");
       }
       
-      if(score >= 5) break;
+      if(score >= 5) break;  // stops the code if the user get's 5 correct
     } 
 
     if (score >= 5)
