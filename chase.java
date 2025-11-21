@@ -4,13 +4,13 @@ import java.util.Scanner;
 public class chase
 {
   public static Scanner sc = new Scanner(System.in);
+
+  static boolean powerupachieved1 = false;   // new variables to keep track of the power up achieved/used
+  static boolean powerupused1 = false; 
+
+
     public static void main(String[] args)
     {
-      // trying to create it so if the user says power up at any time then it will active it 
-      String password = ("power up time");
-      if(password.equals("power up time"))
-
-
     System.out.println("Hello and welcome to my game to escape you must correctly answer, 5 questions to escape. However beware of what may be following you, incorrectly answer questions after question and you may be caught and stuck forever! ");
    
     System.out.println("First let me know who I am dealing with, what is your name? ");
@@ -23,6 +23,10 @@ public class chase
 
     System.out.println("Hello " + mainname + " welcome I would wish you luck however that won't save you so I'm not going to. I want you to remeber I will be one step behind you every time!!");
 
+      boolean powerupachieved = false;
+      boolean powerupused = false;
+
+
     System.out.println("Now before we begin, would you like the chance to gain a power up? ");
     String userInput;
     userInput = sc.nextLine();
@@ -34,13 +38,22 @@ public class chase
       userInput = sc.nextLine();
       // adding in the answer for the gaining the power up
       if((userInput.equals("A"))||(userInput.contains("Apollo")))
+    {
+
+      powerupachieved = true;   // updating it if the user get's the quetion right
+      powerupachieved1 = true;
+
       System.out.println("Well done you have acheived the power up, to active it on any question make sure to say power up time. However you may only use it once so be wise when using it. ");
-    
+    }
     else
-    
+    {
       System.out.println("Sorry that is the wrong asnwer. You have lost your chance of getting a power up! ");
     }
+ }
+ else
+ {
     System.out.println("Let's get onto the actual questions!!! ");
+ }
     String quest = "";
 // waiting for the user to type yes to move on, the user can also type it upper or lower case
     while(!quest.equalsIgnoreCase("Yes"))
@@ -50,7 +63,7 @@ public class chase
     }
 
     int score = 0;      // storing how many right answers
-
+  
       ArrayList<Integer> questionLeft = new ArrayList<>();  // creating an array to hold my questions, so that once is asked it can't be repeated
       for(int x = 1; x <= 14; x++) {
         questionLeft.add(x);
@@ -200,9 +213,31 @@ public class chase
             'A', 'C', 'A', 'D', 'B', 'C', 'A', 'D', 'A', 'A', 'C', 'D', 'A', 'B'    // All the correct answers listed in an array
           };
 
-          System.out.print("Your answer was: ");
+          System.out.print("Your answer is: ");
           String userAnswer = sc.nextLine();
 
+          if(powerupachieved1 && !powerupused1 && userAnswer.equalsIgnoreCase("power up time"))  // checking if the user has earned the power up, they haven't used it and to make sure it doesn't matter the case they put power up time in 
+          {
+            powerupused1 = true;  // marking the power up as used so it can't be used again
+
+            char correct = answers[randomnumber - 1];  // takes the correct answer out of the answers array so it can't be took away for the 50/50
+                    
+            ArrayList<Character> wrong = new ArrayList<>();   // creating an array with the 3 wrong answers and labelling them at wrong
+            for (char c : new char[]{'A','B','C','D'})
+              if (c != correct) wrong.add(c);
+
+            wrong.remove(0);
+            wrong.remove(0);  // removing 2 wrong answers from the array list, so there is only one wrong answer left
+
+            System.out.println("Power up has been activited, the remaining options are:");
+            for(char c : new char[]{'A', 'B', 'C', 'D'})
+              if (c == correct || wrong.contains(c))   // displaying the 2 options which are left
+                System.out.println(c);
+          
+          System.out.println("Your answer is: ");
+          userAnswer = sc.nextLine();
+          
+          }
           while(!userAnswer.matches("[ABCD]")) 
           {
             System.out.println("Please enter A, B, C or D!! ");
@@ -221,5 +256,5 @@ public class chase
 // need to create a power up
 // need to get it so that when the user says power up time it takes away 2 wrong answers
 // need to get it so the chaser is chasing you
-// need to get it so that a question can't be asked twice in one game
+
 
