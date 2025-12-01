@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.Scanner;
 public class chase
 {
@@ -62,7 +61,7 @@ public class chase
       quest = sc.nextLine();
     }
 
-    int score = 0;      // storing how many right answers
+    int score = 0;      // counting how many answers the user get's correct we need this so that when it reaches 5 the quiz ends
   
       ArrayList<Integer> questionLeft = new ArrayList<>();  // creating an array to hold my questions, so that once is asked it can't be repeated
       for(int x = 1; x <= 14; x++) {
@@ -251,10 +250,6 @@ public class chase
 
           }
     }
-
-
-// need to create a power up
-// need to get it so that when the user says power up time it takes away 2 wrong answers
 // need to get it so the chaser is chasing you
 
 
