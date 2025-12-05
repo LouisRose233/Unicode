@@ -1,9 +1,9 @@
-public class questions 
+public class Question 
 {
     private String question;
     private String correctAnswer;
 
-    public questions(String question,String correctAnswer)
+    public Question(String question,String correctAnswer)
     {
       this.question = question;
       this.correctAnswer = correctAnswer;
