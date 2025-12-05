@@ -4,7 +4,7 @@ public class chase
 {
   public static Scanner sc = new Scanner(System.in);
 
-  static boolean powerupachieved1 = false;   // new variables to keep track of the power up achieved/used
+  static boolean powerupachieved1 = false;   // help to keep track if the power up has been used and achieved 
   static boolean powerupused1 = false; 
 
 
@@ -71,13 +71,14 @@ public class chase
     for (int i = 0; i < 14 && !questionLeft.isEmpty(); i++)
     {
 
-      int index = (int)(Math.random()* questionLeft.size());  // to make sure it is still random and not in order
+      int index = (int)(Math.random()* questionLeft.size());  // to make sure the questions get asked randomly not in order
       int randomnumber = questionLeft.remove(index);    // this will remove the question from the array once it has been asked
-      boolean correct =  printQuestion(randomnumber);   // allows the code to now if the user got the question right or wrong, linked to the array with the answers
+      boolean correct =  printQuestion(randomnumber);   // allows the code to now if the user got the question right or wrong
       if(correct) {score++; 
       
         System.out.println("Correct Well done!! ");  // printing if the user escaped or not
-      } else 
+      } 
+      else 
       {
         System.out.println("That is wrong unfortunately. :( ");
       }
@@ -89,7 +90,7 @@ public class chase
     System.out.println("You Escaped well done and good luck on your next adventures!! ");
     else
     System.out.println("You failed to escape and will be stuck with the chaser forever now.. ");
-}
+  }
     static boolean printQuestion(int randomnumber) {
       // the three """ make sure everything inside of it get's printed
       String question1 = """ 
@@ -237,17 +238,13 @@ public class chase
           userAnswer = sc.nextLine();
           
           }
-          while(!userAnswer.matches("[ABCD]")) 
+          while(!userAnswer.matches("[ABCD]"))  // still making sure the user type A, B, C or D as an answer
           {
             System.out.println("Please enter A, B, C or D!! ");
             userAnswer = sc.nextLine();
           }
           char guess = userAnswer.charAt(0);     // looking at what the user has typed. 
           return guess == answers[randomnumber - 1];   // checking if the guess equals the answers stored in the array.
-
-
-
-
           }
     }
 // need to get it so the chaser is chasing you
