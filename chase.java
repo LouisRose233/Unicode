@@ -8,34 +8,36 @@ public class chase
   static boolean powerupused1 = false; 
 
 
-    public static void main(String[] args)
+    public static void main(String[] args)  // creating the player profile
     {
     System.out.println("Hello and welcome to my game to escape you must correctly answer, 5 questions to escape. However beware of what may be following you, incorrectly answer questions after question and you may be caught and stuck forever! ");
    
     System.out.println("First let me know who I am dealing with, what is your name? ");
-    String mainname = sc.nextLine();
+    String firstname = sc.nextLine();
 
-    System.out.println("Hello " + mainname + " what is your second name? ");
-    String mainsecond = sc.nextLine();
+    System.out.println("Hello " + firstname + " what is your second name? ");
+    String lastname = sc.nextLine();
 
-    System.out.println("Welcome " + mainname + " " +  mainsecond + " now let me introduce to you, who you are battling to escape ");
+    player player = new player(firstname, lastname);  // making a new player then storing it as an object
 
-    System.out.println("Hello " + mainname + " welcome I would wish you luck however that won't save you so I'm not going to. I want you to remeber I will be one step behind you every time!!");
+    System.out.println("Welcome " + player.getFullName() + " now let me introduce to you, who you are battling to escape "); //combining the players name together
 
-      boolean powerupachieved = false;
-      boolean powerupused = false;
+    System.out.println("Hello " + firstname + " welcome I would wish you luck however that won't save you so I'm not going to. I want you to remeber I will be one step behind you every time!!");
+
+    boolean powerupachieved = false; // question hasn't been asked to setting the powerup used/achieved as false
+    boolean powerupused = false;
 
 
-    System.out.println("Now before we begin, would you like the chance to gain a power up? ");
+    System.out.println("Now before we begin, would you like the chance to gain a power up? "); // onto the power up question
     String userInput;
     userInput = sc.nextLine();
-    if(userInput.toLowerCase().contains("y"))
+    if(userInput.toLowerCase().contains("y"))  // getting it so if the user type Y in lower or upppercase it will then move on
     {
       System.out.println("Perfect, the power up you will achieve is going to be a 50/50. This will allow you to take away 2 wrong answers of one question of your choice. ");
       System.out.println("Firstly you need to answer this question- Who was the Ancient Greek God of the Sun");
       System.out.println("Was it A- Apollo, B- Zeus, C- Ares or D- Artemis? ");
       userInput = sc.nextLine();
-      // adding in the answer for the gaining the power up
+      // the answer for the gaining the power up
       if((userInput.equals("A"))||(userInput.contains("Apollo")))
     {
 
@@ -68,13 +70,13 @@ public class chase
         questionLeft.add(x);
       }              
     
-    for (int i = 0; i < 14 && !questionLeft.isEmpty(); i++)
+    for (int i = 0; i < 14 && !questionLeft.isEmpty(); i++)  // keep reapting till there are no question's left in the forr loop
     {
 
-      int index = (int)(Math.random()* questionLeft.size());  // to make sure the questions get asked randomly not in order
+      int index = (int)(Math.random()* questionLeft.size());  // to make sure the questions get asked randomly 
       int randomnumber = questionLeft.remove(index);    // this will remove the question from the array once it has been asked
       boolean correct =  printQuestion(randomnumber);   // allows the code to now if the user got the question right or wrong
-      if(correct) {score++; 
+      if(correct) {score++; // adding one to the score if it is right
       
         System.out.println("Correct Well done!! ");  // printing if the user escaped or not
       } 
