@@ -24,4 +24,9 @@ public class Question
     public void setCorrectAnswer(String correctAnswer) {
         this.correctAnswer = correctAnswer;
     }
+
+    public boolean isCorrect(String string) {
+      // TODO Auto-generated method stub
+      throw new UnsupportedOperationException("Unimplemented method 'isCorrect'");
+    }
 }

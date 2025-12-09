@@ -1,5 +1,9 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+
+// testing has been done in a seperate class called testinggame.java
+// This ensure the game is working the way it is supposed to
+
 public class chase
 {
   public static Scanner sc = new Scanner(System.in);
