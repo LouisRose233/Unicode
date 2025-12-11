@@ -1,9 +1,7 @@
 // I have made this class to test my game 
-
-
 public class testinggame
 {
-  public static void main(String[] args)
+  public static void main(String[] args) 
   {
       Question question = new Question 
       (
