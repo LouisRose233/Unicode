@@ -4,7 +4,7 @@ import java.util.Scanner;
 // testing has been done in a seperate class called testinggame.java
 // This ensure the game is working the way it is supposed to
 
-public class chase
+public class chase 
 {
   public static Scanner sc = new Scanner(System.in);
 
@@ -19,7 +19,7 @@ public class chase
     System.out.println("First let me know who I am dealing with, what is your name? ");
     String firstname = sc.nextLine();
 
-    System.out.println("Hello " + firstname + " what is your second name? ");
+    System.out.println("Hello " + firstname + " what is your second name? "); 
     String lastname = sc.nextLine();
 
     player player = new player(firstname, lastname);  // making a new player then storing it as an object
@@ -89,10 +89,10 @@ public class chase
         System.out.println("That is wrong unfortunately. :( ");
       }
       
-      if(score >= 5) break;  // stops the code if the user get's 5 correct
+      if(score >= 10) break;  // stops the code if the user get's 5 correct
     } 
 
-    if (score >= 5)
+    if (score >= 10)
     System.out.println("You Escaped well done and good luck on your next adventures!! ");
     else
     System.out.println("You failed to escape and will be stuck with the chaser forever now.. ");

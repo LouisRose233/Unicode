@@ -1,4 +1,4 @@
-public class player
+public class player 
 {
   String firstname;
   String lastname;
@@ -28,5 +28,4 @@ public class player
     {
       return firstname + " " + lastname;
     }
-
 }
